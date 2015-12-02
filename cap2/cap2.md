@@ -1,17 +1,17 @@
-\chapter{Propuesta}
+# Propuesta
 
 Como se menciona en \cite{method}\cite{modnegweb}\cite{modnegweb2}
 
-\section{Capítulo 2.1}
+## Capítulo 2.1
 
 Como se aprecia en la figura \ref{usm}
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.5]{cap2/fig/ISOTIPO_Negro.jpg}
-\caption{Logo USM 2}
+<!-- \begin{figure}[H]
+\centering -->
+![Logo USM 2\label{usm}](cap2/fig/dibujov2.png)
+<!-- \caption{Logo USM 2}
 \label{usm2}
-\end{figure}
+\end{figure} -->
 
 \section{Capítulo 2.2}
 

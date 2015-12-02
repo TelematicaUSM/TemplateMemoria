@@ -1,3 +1,9 @@
+/dependencies
+/thesis.cls
+/thesis.sty
+/thema.cls
+/thema.sty
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
