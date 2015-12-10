@@ -10,7 +10,6 @@ $if(linestretch)$
 $endif$
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
@@ -70,9 +69,9 @@ $if(biblio-files)$
 \bibliography{$biblio-files$}
 $endif$
 $endif$
-$if(listings)$
+
 \usepackage{listings}
-$endif$
+
 $if(lhs)$
 \lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
 $endif$
@@ -86,7 +85,6 @@ $endif$
 
 \usepackage{longtable,booktabs}
 
-$if(graphics)$
 \usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -96,7 +94,7 @@ $if(graphics)$
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-$endif$
+
 \ifxetex
   \usepackage[setpagesize=false, % page size defined by xetex
               unicode=false, % unicode breaks when used with xetex
@@ -148,7 +146,7 @@ $endif$
         \bfseries \abstractname
     \end{center}
 }
-{\par\vfil\null\cleardoublepage}
+{\par\vfil\null\clearpage}
 
 $if(definiciones)$
     % Workaround from: <http://tex.stackexchange.com/
@@ -161,11 +159,10 @@ $if(definiciones)$
     \usepackage[xindy,section]{glossaries}
     \loadglsentries{$definiciones$}
     \makeglossaries
-    \let\cleardoublepage\clearpage
 $endif$
 
-\usepackage{fancyhdr}
 \usepackage{etoolbox}
+\usepackage{fancyhdr}
 % Turn on the style
 \pagestyle{fancy}
 % Sets both header and footer to nothing
@@ -180,6 +177,8 @@ $endif$
 \patchcmd{\listoffigures}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
 
 \begin{document}
+    \pagenumbering{roman}
+
     \begin{titlepage}
         \centering
         \bfseries
@@ -225,8 +224,6 @@ $endif$
         \par
     \end{titlepage}
     \pagebreak
-
-    \pagenumbering{roman}
 
     $if(agradecimientos)$
         \section*{\centering AGRADECIMIENTOS}
@@ -280,8 +277,8 @@ $endif$
     $if(lof)$
         \listoffigures
     $endif$
-    \pagebreak
 
+    \cleardoublepage
     \pagenumbering{arabic}
 
     $for(main_content)$
