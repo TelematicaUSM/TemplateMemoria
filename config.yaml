@@ -1,0 +1,44 @@
+---
+fontsize: 12pt
+lang: spanish
+mainlang: spanish
+other_langs:
+    -   english
+papersize: letterpaper
+documentclass: report
+geometry:
+    -   inner=4cm
+    -   outer=3cm
+    -   vmargin=3cm
+    -   twoside
+mainfont: Times New Roman
+institution: Universidad Técnica Federico Santa María
+academic_unit: Departamento de Jirafología
+city: Valparaíso
+country: Chile
+title: Ergonomía de Jirafas
+author: Períco Pérez Palotes
+degree: Ingeniero Civil de Jirafas Levitantes
+professor: Juan Josefo Jara Jote
+month: Enero
+year: 2015
+advertencia: >
+    Material de referencia, su uso no involucra
+    responsabilidad del autor o de la Institución.
+numbersections: true
+toc-depth: 1
+agradecimientos: src/preambulo/agradecimientos.tex
+dedicatoria: src/preambulo/dedicatoria.tex
+resumen: src/preambulo/resumen.tex
+abstract: src/preambulo/abstract.tex
+definiciones: src/definiciones
+bibliografia: src/bibliografia.tex
+main_content:
+    -   src/introduccion/introduccion.tex
+    -   src/cap1/cap1.tex
+    -   src/cap2/cap2.tex
+    -   src/cap3/cap3.tex
+    -   src/cap4/cap4.tex
+anexos:
+    -   src/anexos/anexoA.tex
+...

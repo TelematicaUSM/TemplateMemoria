@@ -1,4 +1,9 @@
-\documentclass[12pt,letterpaper,$if(lang)$$lang$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{report}
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+$if(fontfamily)$
+\usepackage{$fontfamily$}
+$else$
+\usepackage{lmodern}
+$endif$
 $if(linestretch)$
 \usepackage{setspace}
 \setstretch{$linestretch$}
@@ -52,7 +57,6 @@ $if(lang)$
   \usepackage[shorthands=off,$lang$]{babel}
 \fi
 $endif$
-
 $if(natbib)$
 \usepackage{natbib}
 \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
@@ -128,24 +132,21 @@ $if(verbatim-in-note)$
 \VerbatimFootnotes % allows verbatim text in footnotes
 $endif$
 
+$if(title)$
+\title{$title$$if(subtitle)$\\\vspace{0.5em}{\large $subtitle$}$endif$}
+$endif$
+$if(author)$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+$endif$
+\date{$date$}
+$for(header-includes)$
+$header-includes$
+$endfor$
+
 \begin{document}
-    \centering
-    {
-        \fontsize{18}{21.6}
-        $institution$
-    }
-
-    % $if(title)$
-    % \title{$title$$if(subtitle)$\\\vspace{0.5em}{\large $subtitle$}$endif$}
-    % $endif$
-    % $if(author)$
-    % \author{$for(author)$$author$$sep$ \and $endfor$}
-    % $endif$
-    % \date{$date$}
-    % $for(header-includes)$
-    % $header-includes$
-    % $endfor$
-
+$if(title)$
+\maketitle
+$endif$
 $if(abstract)$
 \begin{abstract}
 $abstract$

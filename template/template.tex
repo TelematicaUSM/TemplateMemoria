@@ -1,0 +1,300 @@
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$lang$,$endif$$if(papersize)$$papersize$,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+$if(fontfamily)$
+\usepackage{$fontfamily$}
+$else$
+\usepackage{lmodern}
+$endif$
+$if(linestretch)$
+\usepackage{setspace}
+\setstretch{$linestretch$}
+$endif$
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+$if(euro)$
+  \usepackage{eurosym}
+$endif$
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+$if(mainfont)$
+    \setmainfont{$mainfont$}
+$endif$
+$if(sansfont)$
+    \setsansfont{$sansfont$}
+$endif$
+$if(monofont)$
+    \setmonofont[Mapping=tex-ansi]{$monofont$}
+$endif$
+$if(mathfont)$
+    \setmathfont(Digits,Latin,Greek){$mathfont$}
+$endif$
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+$if(geometry)$
+\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$endif$
+$if(lang)$
+\ifxetex
+  \usepackage{polyglossia}
+  \setmainlanguage{$mainlang$}
+  $for(other_langs)$
+    \setotherlanguage{$other_langs$}
+  $endfor$
+\else
+  \usepackage[shorthands=off,$lang$]{babel}
+\fi
+$endif$
+$if(natbib)$
+\usepackage{natbib}
+\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
+$endif$
+$if(biblatex)$
+\usepackage{biblatex}
+$if(biblio-files)$
+\bibliography{$biblio-files$}
+$endif$
+$endif$
+$if(listings)$
+\usepackage{listings}
+$endif$
+$if(lhs)$
+\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
+$endif$
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+$if(verbatim-in-note)$
+\usepackage{fancyvrb}
+\VerbatimFootnotes
+$endif$
+
+\usepackage{longtable,booktabs}
+
+$if(graphics)$
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+$endif$
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={$author-meta$},
+            pdftitle={$title-meta$},
+            colorlinks=true,
+            citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
+            urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
+            linkcolor=$if(linkcolor)$$linkcolor$$else$magenta$endif$,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+$if(links-as-notes)$
+% Make links footnotes instead of hotlinks:
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+$endif$
+$if(strikeout)$
+\usepackage[normalem]{ulem}
+% avoid problems with \sout in headers with hyperref:
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+$endif$
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+$if(numbersections)$
+\setcounter{secnumdepth}{5}
+$else$
+\setcounter{secnumdepth}{0}
+$endif$
+$if(verbatim-in-note)$
+\VerbatimFootnotes % allows verbatim text in footnotes
+$endif$
+
+% This is a hack from
+% <http://tex.stackexchange.com/questions/45105/
+% after-notitlepage-my-abstract-lost-formatting
+% #answer-45202> when I don't use it one of the abstracts
+% has inverted margins. There should be a better solution to
+% this problem.
+\renewenvironment{abstract}{
+    \newpage
+    \null\vfil
+    \begin{center}%
+        \bfseries \abstractname
+    \end{center}
+}
+{\par\vfil\null\cleardoublepage}
+
+$if(definiciones)$
+    % Workaround from: <http://tex.stackexchange.com/
+    % questions/85696/what-causes-this-strange-interaction-
+    % between-glossaries-and-amsmath#answer-85700>
+    \makeatletter % undo the wrong changes made by mathspec
+    \let\RequirePackage\original@RequirePackage
+    \let\usepackage\RequirePackage
+    \makeatother
+    \usepackage[xindy,section]{glossaries}
+    \loadglsentries{$definiciones$}
+    \makeglossaries
+    \let\cleardoublepage\clearpage
+$endif$
+
+\usepackage{fancyhdr}
+\usepackage{etoolbox}
+% Turn on the style
+\pagestyle{fancy}
+% Sets both header and footer to nothing
+\fancyhf{}
+% Set the right side of the footer to be the page number
+\fancyfoot[R]{\thepage}
+% Patches
+\renewcommand{\headrulewidth}{0pt}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+\patchcmd{\tableofcontents}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+\patchcmd{\listoftables}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+\patchcmd{\listoffigures}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+\begin{document}
+    \begin{titlepage}
+        \centering
+        \bfseries
+
+        \fontsize{18pt}{21.6pt}\selectfont
+        \MakeUppercase{$institution$}
+
+        \fontsize{16pt}{19.2pt}\selectfont
+        \MakeUppercase{$academic_unit$}
+
+        \fontsize{14pt}{16.8pt}\selectfont
+        \MakeUppercase{$city$ - $country$}
+
+        \vspace{1cm}
+        \includegraphics[height=33mm]
+            {template/Logo_UTFSM_crop.png}
+
+        \vfill
+
+        \fontsize{20pt}{24pt}\selectfont
+        \MakeUppercase{$title$}
+
+        \vfill
+
+        \fontsize{14pt}{16.8pt}\selectfont
+        \MakeUppercase{$author$}
+
+        \fontsize{12pt}{14.4pt}\selectfont
+        \MakeUppercase{
+            Memoria de Titulación para optar al título de
+            $degree$.
+        }
+
+        \fontsize{12pt}{14.4pt}\selectfont
+        \MakeUppercase{PROFESOR GUÍA: $professor$}
+
+        \fontsize{14pt}{16.8pt}\selectfont
+        \MakeUppercase{$month$ - $year$}
+        \par
+
+        \fontsize{14pt}{16.8pt}\selectfont
+        $advertencia$
+        \par
+    \end{titlepage}
+    \pagebreak
+
+    \pagenumbering{roman}
+
+    $if(agradecimientos)$
+        \section*{\centering AGRADECIMIENTOS}
+        \input{$agradecimientos$}
+        \pagebreak
+    $endif$
+
+    $if(dedicatoria)$
+        \vspace*{\stretch{2}}
+        \begin{flushright}
+            \itshape
+            \input{$dedicatoria$}
+        \end{flushright}
+        \vspace{\stretch{1}}
+        \pagebreak
+    $endif$
+
+    $if(resumen)$
+        \begin{abstract}
+            \input{$resumen$}
+        \end{abstract}
+        \pagebreak
+    $endif$
+
+    $if(abstract)$
+        \begin{english}
+            \begin{abstract}
+                \input{$abstract$}
+            \end{abstract}
+        \end{english}
+        \pagebreak
+    $endif$
+
+    $if(definiciones)$
+        \printglossary
+        \pagebreak
+    $endif$
+
+    $if(toc)$
+        {
+            \hypersetup{linkcolor=black}
+            \setcounter{tocdepth}{$toc-depth$}
+            \tableofcontents
+        }
+    $endif$
+
+    $if(lot)$
+        \listoftables
+    $endif$
+
+    $if(lof)$
+        \listoffigures
+    $endif$
+    \pagebreak
+
+    \pagenumbering{arabic}
+
+    $for(main_content)$
+        \input{$main_content$}
+        \pagebreak
+    $endfor$
+
+    $if(bibliografia)$
+        \input{$bibliografia$}
+        \pagebreak
+    $endif$
+
+    $for(anexos)$
+        \input{$anexos$}
+    $endfor$
+\end{document}
