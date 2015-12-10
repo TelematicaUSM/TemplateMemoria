@@ -21,6 +21,7 @@ dep_empty_file = dependencies
 .PHONY: view clean clean_all
 
 $(dep_empty_file):
+	sudo apt-get update
 	sudo apt-get install \
 		pandoc texlive texlive-xetex texlive-generic-extra \
 		ttf-mscorefonts-installer xindy
