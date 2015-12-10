@@ -52,3 +52,7 @@ Colaboración
 
 Los pull requests son bienvenidos! Sería genial si alguien
 se motivara con un fork para otras carreras/universidades.
+
+Además siempre es útil que prueben el template en más
+sistemas para poder agregarlos a la lista de distribuciones
+soportadas.
