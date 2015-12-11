@@ -219,9 +219,12 @@ $endif$
         \MakeUppercase{$month$ - $year$}
         \par
 
-        \fontsize{14pt}{16.8pt}\selectfont
-        $advertencia$
-        \par
+        $if(advertencia)$
+            \fontsize{14pt}{16.8pt}\selectfont
+            Material de referencia, su uso no involucra
+            responsabilidad del autor o de la Institución.
+            \par
+        $endif$
     \end{titlepage}
     \pagebreak
 

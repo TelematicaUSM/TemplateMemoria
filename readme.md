@@ -47,6 +47,12 @@ eliminen cuando hagas un `make clean`. Además es conveniente
 modificar los archivos ocultos `.gitignore` dentro de `src`
 para que tus archivos `.tex` no sean ignorados por `git`.
 
+Otra opción, más fácil pero menos limpia, es escribir LaTeX
+directamente en los archivos `.md`. Esto funciona debido a
+que Pandoc acepta código LaTeX dentro de los archivos de
+Markdown y no lo modifica al compilar desde Markdown a
+LaTeX.
+
 Colaboración
 ------------
 

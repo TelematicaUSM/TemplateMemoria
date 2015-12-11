@@ -22,9 +22,7 @@ degree: Ingeniero Civil de Jirafas Levitantes
 professor: Juan Josefo Jara Jote
 month: Enero
 year: 2015
-advertencia: >
-    Material de referencia, su uso no involucra
-    responsabilidad del autor o de la Institución.
+advertencia: true
 numbersections: true
 toc-depth: 1
 agradecimientos: src/preambulo/agradecimientos.tex
