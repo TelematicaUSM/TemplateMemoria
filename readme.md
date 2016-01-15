@@ -62,3 +62,14 @@ se motivara con un fork para otras carreras/universidades.
 Además siempre es útil que prueben el template en más
 sistemas para poder agregarlos a la lista de distribuciones
 soportadas.
+
+Por hacer
+---------
+
+- [ ]   Hacer un backport de los makefiles de
+        <https://github.com/cganterh/memoria>.
+- [ ]   Crear ejemplos de cómo utilizar imágenes SVG.
+- [ ]   Crear un archivo `Dockerfile`.
+- [ ]   Simplificar el template.
+- [ ]   Verificar la compatibilidad del template con el
+        template que provee pandoc.

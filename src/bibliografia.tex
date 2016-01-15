@@ -1,4 +1,79 @@
+% La especificación sobre el formato de las referencias no
+% es clara, a si que trataré de mejorarla aquí.
 
+% Página Web
+% ==========
+%
+% Formato:
+%
+%     \bibitem{web}
+%         APELLIDO, Nombre.  <!--No especifica formato para varios autores-->
+%         Título
+%         [Tipo de soporte]  <!--Ni idea qué es esto! Solo ponga: [en linea] y no haga preguntas.-->
+%         <URL>
+%         [consulta: Fecha de la visita]
+%
+% Ejemplo:
+%
+%     \bibitem{scaleup-web}
+%         % No hay autor (que yo sepa)
+%         SCALE-UP Site
+%         [en linea]
+%         <\url{http://scaleup.ncsu.edu/}>
+%         [consulta: 16 diciembre 2015]
+
+% Artículo de revista con un autor
+% ================================
+%
+% Si! Hay distintos formatos para distintas cantidades de
+% autores. De lo más creativo!
+%
+% Formato:
+%
+%     \bibitem{apellido}
+%         APELLIDO, Nombre.
+%         Título.
+%         Título de la revista.  <!--Subrayado. Si, subrayado! Del peor de los gustos! :P-->
+%         Volumen  <!--Opcional. https://en.wikipedia.org/wiki/Periodical_literature#Volumes_and_issues-->
+%         (Número) <!--Issue en inglés.-->
+%         :Paginación,
+%         Fecha de publicación  <!--indicar mes y año-->
+%
+% Ejemplo:
+%
+%     \bibitem{prince}
+%         PRINCE, Michael.
+%         Does Active Learning Work? A Review of the Research.
+%         \uline{Journal of Engineering Education.}
+%         93(3): 223-231, 2004  <!--Aquí no encontré el mes-->
+
+% Documentos presentados en congreso, conferencia o reunión
+% =========================================================
+%
+% Formato:
+%
+%     \bibitem{apellido}
+%         APELLIDO, Nombre [[, APELLIDO, Nombre]... | \... \[et al\]]. <!--Trate de interpretar esto como un man-page. No me quedó muy bien.-->
+%         Título del documento.
+%         En: nombre congreso, conferencia o reunión
+%         (número, año y lugar del evento)
+%         Lugar de publicación,
+%         Editor o Institución que lo patrocinan, <!--No sé si se refiere a la publicación o al evento. Elija el que más le guste :P.-->
+%         Año de publicación,
+%         pp. Paginación.
+%
+% Ejemplo:
+%
+%     \bibitem{tsai}
+%         TSAI, Flora ... [et al.].
+%         From Boxes to Bees:
+%             Active Learning in Freshmen Calculus.
+%         En: IEEE Global Engineering Education Conference
+%         (4th, 2013, Berlin, Germany)
+%         <!--No sé como esperan que sepa el lugar de publicación ni de qué sirve.-->
+%         Technische Universität Berlin,
+%         2013,
+%         pp. 59-68.
 
 \begin{thebibliography}{9}
 

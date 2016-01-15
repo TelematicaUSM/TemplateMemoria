@@ -159,6 +159,17 @@ $if(definiciones)$
     \usepackage[xindy,section]{glossaries}
     \loadglsentries{$definiciones$}
     \makeglossaries
+
+    % Workaround from: <http://tex.stackexchange.com/
+    % questions/109122/latex-glossaries-hyperref-link-
+    % only-the-first-occurance-of-an-entry-in-each-sec#answer-283573>
+    \renewcommand*{\glslinkcheckfirsthyperhook}{%
+        \ifglsused{\glslabel}%
+        {%
+            \setkeys{glslink}{hyper=false}%
+        }%
+        {}%
+    }
 $endif$
 
 \usepackage{etoolbox}
@@ -175,6 +186,17 @@ $endif$
 \patchcmd{\tableofcontents}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
 \patchcmd{\listoftables}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
 \patchcmd{\listoffigures}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+\usepackage[titletoc]{appendix}
+\usepackage{caption}
+\usepackage{cleveref}
+
+
+% Workaround from: <http://tex.stackexchange.com/questions/433/
+% vertically-center-text-and-image-in-one-line#answer-17101>
+\newcommand{\vcenteredinclude}[1]{\begingroup
+\setbox0=\hbox{\includegraphics{#1}}%
+\parbox{\wd0}{\box0}\endgroup}
 
 \begin{document}
     \pagenumbering{roman}
@@ -209,7 +231,7 @@ $endif$
         \fontsize{12pt}{14.4pt}\selectfont
         \MakeUppercase{
             Memoria de Titulación para optar al título de
-            $degree$.
+            $degree$
         }
 
         \fontsize{12pt}{14.4pt}\selectfont
@@ -289,12 +311,16 @@ $endif$
         \pagebreak
     $endfor$
 
+    $if(anexos)$
+        \begin{appendices}
+            $for(anexos)$
+                \input{$anexos$}
+            $endfor$
+        \end{appendices}
+    $endif$
+
     $if(bibliografia)$
         \input{$bibliografia$}
         \pagebreak
     $endif$
-
-    $for(anexos)$
-        \input{$anexos$}
-    $endfor$
 \end{document}
