@@ -24,7 +24,7 @@ $(dep_empty_file):
 	sudo apt-get update
 	sudo apt-get install \
 		pandoc texlive texlive-xetex texlive-generic-extra \
-		ttf-mscorefonts-installer xindy
+		ttf-mscorefonts-installer xindy inkscape
 	touch $(dep_empty_file)
 
 $(tex_out): $(template) $(config) | $(dep_empty_file)

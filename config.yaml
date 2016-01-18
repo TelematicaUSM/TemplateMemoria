@@ -32,11 +32,11 @@ abstract: src/preambulo/abstract.tex
 definiciones: src/definiciones
 bibliografia: src/bibliografia.tex
 main_content:
-    -   src/introduccion/introduccion.tex
-    -   src/cap1/cap1.tex
-    -   src/cap2/cap2.tex
-    -   src/cap3/cap3.tex
-    -   src/cap4/cap4.tex
+    -   src/1-introduccion/introduccion.tex
+    -   src/2-estado-del-arte/estado-del-arte.tex
+    -   src/3-propuesta/propuesta.tex
+    -   src/4-resultados/resultados.tex
+    -   src/5-conclusiones/conclusiones.tex
 anexos:
     -   src/anexos/anexoA.tex
 ...
