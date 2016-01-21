@@ -25,10 +25,10 @@ year: 2015
 advertencia: true
 numbersections: true
 toc-depth: 1
-agradecimientos: src/preambulo/agradecimientos.tex
-dedicatoria: src/preambulo/dedicatoria.tex
-resumen: src/preambulo/resumen.tex
-abstract: src/preambulo/abstract.tex
+agradecimientos: src/0-preambulo/agradecimientos.tex
+dedicatoria: src/0-preambulo/dedicatoria.tex
+resumen: src/0-preambulo/resumen.tex
+abstract: src/0-preambulo/abstract.tex
 definiciones: src/definiciones
 bibliografia: src/bibliografia.tex
 main_content:

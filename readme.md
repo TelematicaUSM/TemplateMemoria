@@ -66,10 +66,13 @@ soportadas.
 Por hacer
 ---------
 
-- [ ]   Hacer un backport de los makefiles de
+- [x]   Hacer un backport de los makefiles de
         <https://github.com/cganterh/memoria>.
 - [ ]   Crear ejemplos de cómo utilizar imágenes SVG.
 - [ ]   Crear un archivo `Dockerfile`.
 - [ ]   Simplificar el template.
 - [ ]   Verificar la compatibilidad del template con el
         template que provee pandoc.
+- [ ]   Agregar una opción en la configuración para activar
+        y desactivar los márgenes para imprimir por ambas
+        caras.

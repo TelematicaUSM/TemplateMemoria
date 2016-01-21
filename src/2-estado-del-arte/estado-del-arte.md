@@ -9,7 +9,7 @@ FOO
 
 Como se aprecia en la figura \ref{usm}
 
-![Logo USM\label{usm}](src/cap1/fig/ISOTIPO_Negro.jpg)
+![Logo USM\label{usm}](src/2-estado-del-arte/fig/ISOTIPO_Negro.jpg)
 
 BAR
 ---
