@@ -7,9 +7,27 @@ Como se menciona en
 FOO
 ---
 
-Como se aprecia en la figura \ref{usm}
+Como se aprecia en la figura \cref{usm}
 
 ![Logo USM\label{usm}](src/2-estado-del-arte/fig/ISOTIPO_Negro.jpg)
+
+SVG
+---
+
+Este template permite incluir imágenes SVG en LaTeX de
+manera simple. El archivo `makefile` correspondiente a este
+capítulo tiene reglas que transforman automáticamente las
+imágenes SVG en archivos PDF utilizando inkscape. De esta
+manera cuando se quiera incluir una imagen SVG, simplemente
+debe escribirse la ruta a la imagen, reemplazando la
+extensión `svg` por `pdf`.
+
+La figura \cref{areas} muestra una imagen SVG. Note que
+para incluir esta imagen se ha utilizado la ruta
+`src/2-estado-del-arte/fig/areas.pdf`, en la cual se ha
+reemplazado la extensión del archivo SVG por `pdf`.
+
+![Ejemplo de imagen SVG.\label{areas}](src/2-estado-del-arte/fig/areas.pdf)
 
 BAR
 ---

@@ -68,7 +68,7 @@ Por hacer
 
 - [x]   Hacer un backport de los makefiles de
         <https://github.com/cganterh/memoria>.
-- [ ]   Crear ejemplos de cómo utilizar imágenes SVG.
+- [x]   Crear ejemplos de cómo utilizar imágenes SVG.
 - [ ]   Crear un archivo `Dockerfile`.
 - [ ]   Simplificar el template.
 - [ ]   Verificar la compatibilidad del template con el
