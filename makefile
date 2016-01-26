@@ -15,32 +15,23 @@ glos_glg = $(out_fn).glg
 glos_glo = $(out_fn).glo
 glos_aux = $(glos_glo) $(out_fn).xdy
 
-dep_empty_file = dependencies
-
 .DEFAULT_GOAL = $(main_out)
 .PHONY: view clean clean_all
 
-$(dep_empty_file):
-	sudo apt-get update
-	sudo apt-get install \
-		pandoc texlive texlive-xetex texlive-generic-extra \
-		ttf-mscorefonts-installer xindy inkscape
-	touch $(dep_empty_file)
-
-$(tex_out): $(template) $(config) | $(dep_empty_file)
+$(tex_out): $(template) $(config)
 	pandoc --latex-engine=xelatex --template=$(template) \
 	       --toc $(global_pandoc_opt) -o $@ $(config)
 
 $(glos_aux): $(tex_out)
 
-$(glosario): $(glos_aux) | $(dep_empty_file)
+$(glosario): $(glos_aux)
 	xindy  -L spanish-modern -C utf8 -I xindy \
 	       -M $(out_fn) -t $(glos_glg) -o $@ \
 		   $(glos_glo)
 
 $(main_out): $(glosario)
 
-$(glos_aux) $(main_out): $(src_files) | $(dep_empty_file)
+$(glos_aux) $(main_out): $(src_files)
 	$(MAKE) -C $(src_dir)
 	xelatex $(tex_out)
 
@@ -54,6 +45,3 @@ clean: clean_aux
 clean_aux:
 	rm -f $(glosario) $(glos_glg) $(glos_aux) $(tex_out) \
 	      $(addprefix $(out_fn).,aux log out toc)
-
-clean_all: clean
-	-rm $(dep_empty_file)
