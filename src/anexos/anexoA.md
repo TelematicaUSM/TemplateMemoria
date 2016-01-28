@@ -1,4 +1,5 @@
-\section*{Anexo A}
+Sobre los anexos
+================
 
 En los anexos se incorporará el detalle de lo que se estime
 no indispensable para la comprensión del tema central, pero

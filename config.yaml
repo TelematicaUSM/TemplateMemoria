@@ -10,7 +10,7 @@ geometry:
     -   inner=4cm
     -   outer=3cm
     -   vmargin=3cm
-    -   twoside
+    # -   twoside  # descomentar para impresión ambas caras
 mainfont: Times New Roman
 institution: Universidad Técnica Federico Santa María
 academic_unit: Departamento de Jirafología
