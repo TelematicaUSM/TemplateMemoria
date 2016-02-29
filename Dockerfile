@@ -10,9 +10,11 @@ RUN apt-get update \
     git \
     inkscape \
     make \
+    nano \
     pandoc \
     texlive \
     texlive-generic-extra \
+    texlive-lang-spanish \
     texlive-xetex \
     ttf-mscorefonts-installer \
     xindy \

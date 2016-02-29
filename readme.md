@@ -80,3 +80,7 @@ Por hacer
 - [ ]   Agregar una opción en la configuración para activar
         y desactivar los márgenes para imprimir por ambas
         caras.
+- [x]   Agregar nano al `Dockerfile` para poder usarlo con
+        `git commit`.
+- [x]   Agregar el paquete de español de LaTeX al
+        `Dockerfile`.
