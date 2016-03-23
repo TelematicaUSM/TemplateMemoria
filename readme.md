@@ -84,3 +84,4 @@ Por hacer
         `git commit`.
 - [x]   Agregar el paquete de español de LaTeX al
         `Dockerfile`.
+- [ ]   Quitar los comentarios enojados de la bibliografía.
